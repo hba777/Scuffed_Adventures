@@ -21,6 +21,57 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 import javax.swing.border.EmptyBorder;
 
+class StartScreen extends JFrame {
+    public StartScreen() {
+        // Set up the start screen JFrame
+        setTitle("Scuffed Adventures");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(800, 600);
+        setUndecorated(true);
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
+
+        // Load the background image
+        ImageIcon backgroundImage = new ImageIcon("D:\\University Stuff\\Semester 2\\Object Oriented Programming\\Project\\Scuffed_Adventures\\src\\resources\\StartScreen.png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        setContentPane(backgroundLabel);
+        backgroundLabel.setLayout(new BorderLayout());
+
+        // Create a start button
+        JButton startButton = new JButton("Start Game");
+        startButton.setPreferredSize(new Dimension(100, 80));
+        startButton.setFont(new Font("Arial", Font.BOLD, 24));
+
+        // Center the button
+        backgroundLabel.add(startButton, BorderLayout.SOUTH);
+
+        // Action listener to start the game
+        startButton.addActionListener(e -> {
+            // Play a sound effect on button click (if needed)
+            playSoundEffect("D:\\University Stuff\\Semester 2\\Object Oriented Programming\\Project\\Scuffed_Adventures\\src\\resources\\videoplayback.wav");
+
+            // Start the game
+            new ScrabbleBoard();
+
+            // Close the start screen
+            dispose();
+        });
+
+        setVisible(true);
+    }
+
+    private void playSoundEffect(String filePath) {
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(filePath));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
 public class ScrabbleBoard extends JFrame  {
     private Clip animationSoundClip; 
     private JPanel letterRackPanel;
