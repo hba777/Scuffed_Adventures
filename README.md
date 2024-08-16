@@ -1,18 +1,17 @@
-## Getting Started
+## Scuffed Adventures
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A 1v1 turn-based word game like Bookworm Adventures made in Java. Made by a team of university students.
 
-## Folder Structure
+## Images
 
-The workspace contains two folders by default, where:
+# Start Screen
+![image](https://github.com/user-attachments/assets/1ec9e764-30bd-442a-94f6-1aca934d45e3)
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+# Main Screen
+![image](https://github.com/user-attachments/assets/3d1a5699-a62a-4b14-926d-9492d273a681)
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+# Attack Screen
+![image](https://github.com/user-attachments/assets/514c36a9-42e4-457b-a8e8-d2663e420afe)
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
-## Dependency Management
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
