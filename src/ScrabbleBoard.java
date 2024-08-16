@@ -26,8 +26,7 @@ class StartScreen extends JFrame {
         // Set up the start screen JFrame
         setTitle("Scuffed Adventures");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 600);
-        setUndecorated(true);
+        setSize(1600, 900);  // Set the size to be large, but not fullscreen
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
@@ -37,13 +36,33 @@ class StartScreen extends JFrame {
         setContentPane(backgroundLabel);
         backgroundLabel.setLayout(new BorderLayout());
 
+        // Create a panel to hold the button and center it
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setOpaque(false);  // Make the panel transparent so the background image is visible
+        buttonPanel.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.CENTER; // Center the button
+        gbc.insets = new Insets(10, 10, 40, 10); // Add some padding
+
         // Create a start button
         JButton startButton = new JButton("Start Game");
-        startButton.setPreferredSize(new Dimension(100, 80));
+        startButton.setPreferredSize(new Dimension(200, 100));  // Adjust button size as needed
         startButton.setFont(new Font("Arial", Font.BOLD, 24));
+        startButton.setBackground(Color.yellow);
+        startButton.setForeground(Color.white);
 
-        // Center the button
-        backgroundLabel.add(startButton, BorderLayout.SOUTH);
+        // Remove border and border painting
+        startButton.setBorderPainted(false);
+        startButton.setFocusPainted(false);
+        startButton.setContentAreaFilled(true);
+        
+        // Add the button to the panel
+        buttonPanel.add(startButton, gbc);
+
+        // Add the panel to the bottom of the background label
+        backgroundLabel.add(buttonPanel, BorderLayout.SOUTH);
 
         // Action listener to start the game
         startButton.addActionListener(e -> {
@@ -71,8 +90,7 @@ class StartScreen extends JFrame {
         }
     }
 }
-
-public class ScrabbleBoard extends JFrame  {
+class ScrabbleBoard extends JFrame  {
     private Clip animationSoundClip; 
     private JPanel letterRackPanel;
     private JPanel selectedLettersPanel;
